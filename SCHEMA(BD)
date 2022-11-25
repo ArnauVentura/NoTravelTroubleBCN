@@ -1,0 +1,31 @@
+CREATE database if not exists nttbcn;
+USE nttbcn;
+CREATE TABLE if not exists usuarios(
+  `idUsuario` VARCHAR(45) NOT NULL,
+`idTipo` INT NOT NULL,
+ `Nombre` VARCHAR(45) NOT NULL,
+  `E-mail` VARCHAR(45) NOT NULL,
+  `Contraseña` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idUsuario`),
+  FOREIGN KEY (idTipo) references tipos_usuarios(idTipo)
+);
+CREATE TABLE if not exists juegos (
+  `idJuego` INT NOT NULL,
+  `Nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idJuego`));
+  
+CREATE TABLE if not exists jugar (
+  `idJuego` INT NOT NULL,
+  `idUsuario` VARCHAR(45) NOT NULL,
+  `DateTimePlay` VARCHAR(45) NOT NULL,
+  `Puntuacion` VARCHAR(45) NOT NULL,
+ PRIMARY KEY (`idJuego`, `idUsuario`),
+ FOREIGN KEY (idUsuario) references usuarios (idUsuario), 
+ FOREIGN KEY (idJuego) references juegos (idJuego)   
+  );
+
+CREATE TABLE if not exists tipos_usuarios (
+  `idTipo` INT NOT NULL,
+  `Descripcion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idTipo`));
+
