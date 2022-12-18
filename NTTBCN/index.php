@@ -1,7 +1,6 @@
 <?php 
 session_start();
 
-
 $nombreBD = "nttbcn"; //Hay que poner el nombre de la BBDD
 $usuarioBD = "root"; //Hay que poner el nombre del admin de BBDD
 $contraseñaBD = ""; //Hay que poner la contraseña del admin de BBDD
@@ -76,7 +75,7 @@ if(!$conn){
                
                 <!--Poner panel administracion-->
                 <li class="nav-item active">
-                  <a id="mi_cuenta" class="nav-link" onclick="openPopup2();">MI CUENTA ADMIN</a>
+                  <a id="mi_cuenta" class="nav-link" onclick="openPopup2();">ADMIN</a>
                   <img id="mi_cuenta_img" src="./media/login_icon.png" onclick="openPopup2();"
                   class="d-inline-block align-text-top">
               </li>
@@ -85,7 +84,7 @@ if(!$conn){
                 ?>
                 <!--Poner panel usuario normal-->
                 <li class="nav-item active">
-                  <a id="mi_cuenta" class="nav-link" onclick="openPopup();">MI CUENTA NORMAL</a>
+                  <a id="mi_cuenta" class="nav-link" onclick="openPopup();"><?php echo $_SESSION['usuario'] ?></a>
                   <img id="mi_cuenta_img" src="./media/login_icon.png" onclick="openPopup();"
                   class="d-inline-block align-text-top">
                 </li>
