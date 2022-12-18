@@ -101,13 +101,20 @@ walls.forEach(function (item) {
   board.sprite.appendChild(div);
 });
 
+function totalScore(){
+  var elscorebest = score;
+  window.location.href = window.location.href + "?puntosfinales=" + elscorebest;
+}
+
 function openMenu(isWin){
   reset();
   setTimeout(function (){
     if(isWin){
       alert("Has ganado");
+      totalScore();
     }else{
-      alert("Has perdido");  
+      alert("Has perdido");
+      totalScore();  
     }
   }, 10); 
 }

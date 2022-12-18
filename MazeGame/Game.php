@@ -1,3 +1,47 @@
+<?php 
+session_start();
+// if(isset($_SESSION['usuario'])){
+//     header('location: index.php');
+// }
+$nombreBD = "nttbcn"; //Hay que poner el nombre de la BBDD
+$usuarioBD = "root"; //Hay que poner el nombre del admin de BBDD
+$contraseñaBD = ""; //Hay que poner la contraseña del admin de BBDD
+$conn = mysqli_connect("localhost", $usuarioBD, $contraseñaBD, $nombreBD);
+if(!$conn){
+    echo "No se pudo conectar con el servidor, porfavor inténtelo más tarde!";
+}
+
+
+if (isset($_GET["puntosfinales"])) {
+    $puntuacion = $_GET["puntosfinales"];
+    $usuario = $_SESSION['usuario']; 
+    $idJuego = 2;
+    //$usuario = "prueba";
+        $verificar=$conn->query("select exists (select * from usuarios where Nombre='$usuario');");
+        $row=mysqli_fetch_row($verificar);
+            if ($row[0]=="1") {
+                    $consulta = "select idUsuario from usuarios where Nombre='$usuario';";
+                    $id = mysqli_query($conn, $consulta); 
+                    $row = mysqli_fetch_assoc($id);
+                    $id2 = $row['idUsuario'];
+                    $verificar=$conn->query("select exists (select * from jugar where idUsuario='$id2');");
+                    $row=mysqli_fetch_row($verificar);
+                if ($row[0]=="1") {
+                    $consulta = "UPDATE jugar SET Puntuacion='$puntuacion' where idUsuario='$id2'";
+                    if (mysqli_query($conn, $consulta)) {
+                        }else {
+                        }
+                }else{
+                    $consulta = "INSERT INTO jugar (idJuego, idUsuario, Puntuacion) values ('$idJuego', '$id2', '$puntuacion')" ;
+                    if (mysqli_query($conn, $consulta)) {
+                        }else {
+                        }
+                }
+
+            }
+    } 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +73,7 @@
                     <tb>Time
                         </br>
                         <button id="TimeButton" onclick="timer()"> Start the game</button>
-                        <button onclick="location.href=''" type="button">
+                        <button onclick="location.href='/NTTBCN/index.html'" type="button">
                             Volver a la pagina principal</button>
                         <div id="Progress">
                             <div id="bar"></div>
