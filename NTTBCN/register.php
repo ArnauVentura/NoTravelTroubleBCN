@@ -10,18 +10,19 @@ $conn = mysqli_connect("localhost", $usuarioBD, $contraseñaBD, $nombreBD);
 if(!$conn){
     echo "No se pudo conectar con el servidor, porfavor inténtelo más tarde!";
 }else{
-    if(isset($_POST["registrado"])){
+    if(isset($_POST['usuario'])){
         $usuario = $_POST['usuario'];
         $email = $_POST['email'];
         $contrasena = md5($_POST['contrasena']);
+        $tipo = 1;
         $verificar=$conn->query("SELECT EXISTS (SELECT * FROM usuarios WHERE Nombre='$usuario');");
         $row=mysqli_fetch_row($verificar);
         if ($row[0]=="1") {
             echo "Este usuario ya existe!";
         }else{
-            $insert = "INSERT INTO usuarios (Nombre,Email,Contraseña) VALUES ('$usuario', '$email','$contrasena')";
+            $insert = "INSERT INTO usuarios (idTipo,Nombre,Email,Contraseña) VALUES ('$tipo','$usuario', '$email','$contrasena')";
             if (mysqli_query($conn, $insert)) {
-                echo "Usuario registrado correctamente!";
+                echo "";
             }else {
                 echo "Error: " . $insert . "<br>" . mysqli_error($conn);
             }
@@ -82,28 +83,32 @@ if(!$conn){
         </div>
     </div>
 
-
+    
     <div class="login">
         <h1>Registro</h1>
         <div class="form">
-            <form>
+            <form action="./register.php" method="post">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                    <input type="text" minlength="4" maxlength="12" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input type="text" minlength="4" maxlength="12" class="form-control" id="usuario" aria-describedby="emailHelp" name="usuario">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="contrasena" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena">
                 </div>
                 <button type="submit" class="btn btn-primary">Registrarse</button>
             </form>
+            <?php if(isset($_POST['usuario'])){
+                echo" <p>Usuario Registrado</p>";
+            }; 
+            ?>
+            <button><a href="./index.php">Volver</a></button>
         </div>
 
     </div>
 </section>
-
 </html>
