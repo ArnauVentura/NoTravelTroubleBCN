@@ -95,6 +95,8 @@ function JuegoPerdido() {
     pararJuego();
     reiniciar.classList.add("reset")
     MensajeDerrota(false);
+    var elscorebest = score;
+    window.location.href = window.location.href + "?puntosfinales=" + elscorebest;
 
 }
 function MensajeDerrota(){
