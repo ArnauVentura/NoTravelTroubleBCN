@@ -26,7 +26,6 @@ var PosicionEnemigo = 880;
 let StepIncremental = 4;
 // Para que se active la funcion que compruebe las coalisiones al iniciar
 window.addEventListener("load", () => {
-    alert("Evolution Race: Seràs capaz de llegar a la màxima velocidad ?");
     ReiniciarJuego();
     pararJuego();
 })
@@ -101,8 +100,8 @@ function JuegoPerdido() {
 }
 function MensajeDerrota(){
     if(si === false){
-    alert("Has perdido tus puntos han sido: " + puntos +
-    " y tu tiempo total han sido " + tiempo + " segundos GG NT")
+    alert("Puntos: " + puntos +
+    "\n"+"Tiempo: " + tiempo)
     si = true;
     }
     return si;
@@ -191,7 +190,7 @@ document.addEventListener("keyup", (event) => {
     }*/
 
 // Probando 
-document.addEventListener("keyup", (event) => {
+document.addEventListener("keydown", (event) => {
     const teclaPresionada = event.key;
     if (event.key == 'ArrowUp') {
         SaltoJugador();
@@ -205,7 +204,7 @@ document.addEventListener("keyup", (event) => {
 
 })
 
-document.addEventListener("keyup", (event) => {
+document.addEventListener("keydown", (event) => {
     if (Funcionando == true){
         const teclaPresionada = event.key;
         if (event.key == 'ArrowLeft') {
