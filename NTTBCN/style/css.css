@@ -226,7 +226,7 @@ section a {
 /*SECTION1*/
 /*SECTION1*/
 section:nth-child(2) {
-    background-image: url(/media/background.png)
+    background-image: url(/NTTBCN/media/background.png)
 }
 
 #title_bcn {
@@ -297,7 +297,7 @@ div.card.g>a {
 }
 
 #guitarhero #card_guitarhero a {
-    background-image: url(/media/alexis_game.jpg);
+    background-image: url(/NTTBCN/media/alexis_game.jpg);
     background-size: cover;
 }
 
@@ -310,7 +310,7 @@ div.card.g>a {
 }
 
 #museo_historia #card_museo_historia a {
-    background-image: url(/media/oriol_game.jpg);
+    background-image: url(/NTTBCN/media/oriol_game.jpg);
     background-size: cover;
 }
 
@@ -323,7 +323,7 @@ div.card.g>a {
 }
 
 #laberinto #card_laberinto a {
-    background-image: url(/media/arnau_game.jpg);
+    background-image: url(/NTTBCN/media/arnau_game.jpg);
     background-size: cover;
 }
 
@@ -343,7 +343,7 @@ div.card.g>a {
 }
 
 #zoo #card_zoo a {
-    background-image: url(/media/desi_game.jpg);
+    background-image: url(/NTTBCN/media/desi_game.jpg);
     background-size: cover;
 }
 
@@ -517,19 +517,19 @@ section:nth-child(4) {
 
 .contenedor-texto #card_zoo .circulo:hover:before {
     clip-path: circle(500px at center);
-    background-image: url(/media/zoo_banner.jpg );
+    background-image: url(/NTTBCN/media/zoo_banner.jpg );
     background-position: right 35% bottom 45%;
 }
 
 .contenedor-texto #card_palau .circulo:hover:before {
     clip-path: circle(500px at center);
-    background-image: url(/media/palau_banner.jpg);
+    background-image: url(/NTTBCN/media/palau_banner.jpg);
     background-position: right 35% bottom 45%;
 }
 
 .contenedor-texto #card_laberinto .circulo:hover:before {
     clip-path: circle(500px at center);
-    background-image: url(/media/laberinto_banner.jpg);
+    background-image: url(/NTTBCN/media/laberinto_banner.jpg);
     background-position: right 35% bottom 45%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -537,7 +537,7 @@ section:nth-child(4) {
 
 .contenedor-texto #card_museo .circulo:hover:before {
     clip-path: circle(500px at center);
-    background-image: url(/media/museo_banner.jpg);
+    background-image: url(/NTTBCN//media/museo_banner.jpg);
     background-position: right 35% bottom 45%;
 }
 
@@ -728,19 +728,19 @@ section #sec4 {
 }
 
 #icon_arnau{
-background-image: url(/media/arnau_avatar.png);
+background-image: url(/NTTBCN/media/arnau_avatar.png);
 }
 
 #icon_alexis{
-background-image: url(/media/alexis_avatar.png);
+background-image: url(/NTTBCN/media/alexis_avatar.png);
 }
 
 #icon_desi{
-background-image: url(/media/desi_avatar.png);
+background-image: url(/NTTBCN/media/desi_avatar.png);
 }
 
 #icon_oriol{
-background-image: url(/media/oriol_avatar.png);
+background-image: url(/NTTBCN/media/oriol_avatar.png);
 }
 .container .card .icon {
     position: absolute;
